@@ -24,11 +24,12 @@ Answer the following questions below:
   #### CI is a software development procedure that involves small changes in code and frequent updates/pushes to the codebase instead of large updates. Jenkins, Travis are examples   of packages that attach to github and help programmers test, and pass or reject pushed code based on the test results.
 
 - What is an environment variable and what are they used for?
+  #### used to store app secrets and configuration data which is set outside the program.
 
 - What is TDD? What are some benefits and drawbacks?
-  #### TDD is a software development philosophy that begins by writing tests first which would FAIL and then writing code to make the test pass. The drawbacks of this           
-  philosophy/method    is that it takes development longer. They are hard to write. Tests need to change with the requirements. And often the whole team needs to jump in. The 
-  benefits of this method      are the final product may be better, forces code optimization, testing becomes easier at latter stages of development. Code is tried and true so they 
+  #### TDD is a software development philosophy that begins by writing tests first which would FAIL and then writing code to make the test pass. The drawbacks of this               
+  philosophy/method is that it takes development longer. They are hard to write. Tests need to change with the requirements. And often the whole team needs to jump in. The 
+  benefits of this method are the final product may be better, forces code optimization, testing becomes easier at latter stages of development. Code is tried and true so they 
   can be reused elsewhere. 
 
 - What is the value of using JSONSchema for validation?
