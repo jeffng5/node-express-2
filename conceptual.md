@@ -27,10 +27,7 @@ Answer the following questions below:
   #### used to store app secrets and configuration data which is set outside the program.
 
 - What is TDD? What are some benefits and drawbacks?
-  #### TDD is a software development philosophy that begins by writing tests first which would FAIL and then writing code to make the test pass. The drawbacks of this               
-  philosophy/method is that it takes development longer. They are hard to write. Tests need to change with the requirements. And often the whole team needs to jump in. The 
-  benefits of this method are the final product may be better, forces code optimization, testing becomes easier at latter stages of development. Code is tried and true so they 
-  can be reused elsewhere. 
+  #### TDD is a software development philosophy that begins by writing tests first which would FAIL and then writing code to make the test pass. The drawbacks of this               philosophy/method is that it takes development longer. They are hard to write. Tests need to change with the requirements. And often the whole team needs to jump in. The benefits of this method are the final product may be better, forces code optimization, testing becomes easier at latter stages of development. Code is tried and true so they can be reused elsewhere. 
 
 - What is the value of using JSONSchema for validation?
   #### The JSONSchema replaces many headaches of writing your own code to troubleshoot inaccuracies, missing data, bad data in your json. JSONSchema does/validates it for you.
@@ -47,6 +44,4 @@ Answer the following questions below:
 
 - Did you prefer using Flask over Express? Why or why not (there is no right
   answer here --- we want to see how you think about technology)?
-  #### Flask seems more "meaty" and Express seems even less opinionated than Flask. Express seems to be harder to pick up but only goes so deep in complexity while Python's 
-  learning curve is much easier but can go deep and complex in its advanced stages. I prefer Flask in the short run but think that Express tests your "smarts" more than Python bc 
-  of its steeper learning curve. So Express most of the time and Python less frequently
+  #### Flask seems more "meaty" and Express seems even less opinionated than Flask. Express seems to be harder to pick up but only goes so deep in complexity while Python's learning curve is much easier but can go deep and complex in its advanced stages. I prefer Flask in the short run but think that Express tests your "smarts" more than Python bc of its steeper learning curve. So Express most of the time and Python less frequently
