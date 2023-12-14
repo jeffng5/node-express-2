@@ -15,8 +15,8 @@ class User {
         WHERE username = $1`,
       [username]
     );
-
-    if (duplicateCheck.rows[0]) {
+                    //BUG #4
+    if (duplicateCheck.rows.length > 1) {
       throw new ExpressError(
         `There already exists a user with username '${username}'`,
         400
@@ -32,7 +32,7 @@ class User {
         RETURNING username, password, first_name, last_name, email, phone`,
       [
         username,
-        hashedPassword,
+        hashedPassword, 
         first_name,
         last_name,
         email,
@@ -49,24 +49,19 @@ class User {
    * Return all user data if true, throws error if invalid
    *
    * */
-
+                        //BUG #5
   static async authenticate(username, password) {
     const result = await db.query(
       `SELECT username,
-                password,
-                first_name,
-                last_name,
-                email,
-                phone,
-                admin
+                password       
             FROM users 
             WHERE username = $1`,
       [username]
     );
 
     const user = result.rows[0];
-
-    if (user && (await bcrypt.compare(password, user.password))) {
+            //BUG #2
+    if (user.username && (await bcrypt.compare(password, user.password))) {
       return user;
     } else {
       throw new ExpressError('Cannot authenticate', 401);
@@ -78,8 +73,8 @@ class User {
    * [{username, first_name, last_name, email, phone}, ...]
    *
    * */
-
-  static async getAll(username, password) {
+                  //BUG #1
+  static async getAll() {
     const result = await db.query(
       `SELECT username,
                 first_name,
@@ -126,7 +121,7 @@ class User {
    * If user cannot be found, should raise a 404.
    *
    **/
-
+                                //BUG #3
   static async update(username, data) {
     let { query, values } = sqlForPartialUpdate(
       'users',

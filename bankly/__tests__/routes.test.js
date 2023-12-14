@@ -68,10 +68,7 @@ describe("POST /auth/register", function() {
         phone: "1233211221"
       });
     expect(response.statusCode).toBe(400);
-    expect(response.body).toEqual({
-      status: 400,
-      message: `There already exists a user with username 'u1'`
-    });
+    expect(response.body.length).toEqual(1); //BUG #4
   });
 });
 
@@ -85,9 +82,10 @@ describe("POST /auth/login", function() {
       });
     expect(response.statusCode).toBe(200);
     expect(response.body).toEqual({ token: expect.any(String) });
-
+    expect(response.body.length).toEqual(2)
     let { username, admin } = jwt.verify(response.body.token, SECRET_KEY);
-    expect(username).toBe("u1");
+    expect(response.body.username).toBe("u1"); //BUG #5
+    expect(username).toBe("u1"); //BUG #2
     expect(admin).toBe(false);
   });
 });
@@ -104,6 +102,12 @@ describe("GET /users", function() {
       .send({ _token: tokens.u1 });
     expect(response.statusCode).toBe(200);
     expect(response.body.users.length).toBe(3);
+  test("should get all users", async function() {
+    const response = await request(app).get("/users")
+    .send({ _token: tokens.u1});
+    expect(response.body.users.length).toEqual(3); //BUG #1
+
+  })  
   });
 });
 
