@@ -45,8 +45,8 @@ function requireAdmin(req, res, next) {
  **/
 
 function authUser(req, res, next) {
-  try {
-    const token = req.body._token || req.query._token;
+  try {                         //BUG #6
+    const token = req.body._token 
     if (token) {
       let payload = jwt.decode(token);
       req.curr_username = payload.username;
